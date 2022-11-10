@@ -34,15 +34,15 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
   };
 
   return (
-
     <form onSubmit={onFormSubmit}>
-      <h4>Add new user</h4>
+      <h4 className="text-center my-3">Add new user</h4>
       <div className="form-group">
         <label htmlFor="name">Name</label>
         <input
           type="text"
           id="name"
           name="name"
+          required
           className="form-control"
           value={user.name}
           onChange={onTextTyping}
@@ -62,7 +62,7 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
       </div>
       <div className="form-group my-3">
         <label>Active <input
-          id="active"
+          id="isActive"
           name="isActive"
           type="checkbox"
           checked={user.isActive}
@@ -70,7 +70,7 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
         /> </label>
       </div>
       <div className="form-group mb-4">
-        <label htmlFor="role">Role</label>
+        <label htmlFor="role" className="me-2">Role </label>
         <select
           name="role"
           required
@@ -83,7 +83,7 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
           <option>Admin</option>
         </select>
       </div>
-      <button type="submit" className="btn btn-primary">Create</button>
+      <button type="submit" className="btn btn-dark">Create</button>
     </form>
   );
 };

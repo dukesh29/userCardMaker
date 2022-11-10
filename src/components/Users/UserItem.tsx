@@ -2,23 +2,23 @@ import React from 'react';
 import {User} from "../../types";
 
 interface Props {
-  user:User;
+  user: User;
 }
 
-const UserItem:React.FC<Props> = ({user}) => {
+const UserItem: React.FC<Props> = ({user}) => {
 
-  const userActivity = user.isActive ? 'Yes': 'No';
+  const userActivity = user.isActive ? 'Yes' : 'No';
+
+  const mailTo = `mailto:${user.email}`;
 
   return (
-    <div className="card mb-2">
-      <div className="row no-gutters">
-        <div className="col-sm-8">
-          <div className="card-body">
-            <h5 className="card-title">{user.name}</h5>
-            <p className="card-text small">{user.email}</p>
-            <p className="card-text small">Active: {userActivity}</p>
-            <p className="card-text">{user.role} KGS</p>
-          </div>
+    <div className="card mb-2 bg-dark text-center text-white fw-bold">
+      <div className="col">
+        <div className="card-body">
+          <h4 className="card-title">{user.name}</h4>
+          <p className="card-text"><a href = {mailTo} className="text-white">{user.email}</a></p>
+          <p className="card-text">Active: {userActivity}</p>
+          <p className="card-text">{user.role}</p>
         </div>
       </div>
     </div>
